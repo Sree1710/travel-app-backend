@@ -43,6 +43,19 @@ app.post("/deletet",async(request,response)=>{
     }
 })
 
+app.post("/updatet",async(request,response)=>{
+    let data=request.body
+    let newData={
+        packTitle:data.packTitle,
+        packDescription:data.packDescription,
+        packImg:data.packImg,
+        packDuration:data.packDuration,
+        packRate:data.packRate
+    }
+    let updateParameter={packID:data.packID}
+    let result=await travelModel.findOneAndUpdate(updateParameter,newData)
+    response.json({"status":"success"})
+})
 
 
 
