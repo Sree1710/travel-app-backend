@@ -27,7 +27,11 @@ app.get("/viewt",async(request,response)=>{
     response.json(result)
 })
 
-
+app.post("/searcht",async(request,response)=>{
+    let data=request.body
+    let result=await travelModel.find(data)
+    response.json(result)
+})
 
 
 
